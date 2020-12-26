@@ -32,7 +32,10 @@
 		
 		/* draw vertical line between two column */
 		.vl{
-			border-left: 1px solid black;
+			
+			border-left: 1px solid transparent;
+			filter: blur(1px); /* Amount of bluryness */
+			border-image: linear-gradient(white, black, white) 10 stretch;
 			height: 300px;
 			position: absolute;
 			left: 30%;
