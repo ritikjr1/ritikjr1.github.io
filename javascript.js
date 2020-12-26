@@ -1,17 +1,21 @@
-
-function onload(){
+//default values when page load
+function onload() {
     let isError = false;
     document.getElementById('amount').value = 0.00.toFixed(2);
-    document.getElementById('tipresult').innerText=0.00.toFixed(2);
-    document.getElementById('totalresult').innerText=0.00.toFixed(2);
+    document.getElementById('tip').value = 0.00.toFixed(2);
+    document.getElementById('people').value = 0;
+    document.getElementById('tipresult').innerText = 0.00.toFixed(2);
+    document.getElementById('totalresult').innerText = 0.00.toFixed(2);
 }
 onload();
+
+// for changes in tip on click minus button 
 function tipDecrement() {
     resetErrorMsg();
     let percentageValue = document.getElementById("tip");
     if (Number(percentageValue.value) > 0) {
         percentageValue.value = Number(percentageValue.value) - 1;
-        if (percentageValue.value >= 0) 
+        if (percentageValue.value >= 0)
             calculate();
         else
             showError("invalid number", 'tip');
@@ -21,16 +25,25 @@ function tipDecrement() {
         return false;
     }
 }
+
+// for changes in tip on click plus button 
 function tipIncrement() {
     resetErrorMsg();
     let percentageValue = document.getElementById("tip");
-    if(Number(percentageValue.value) >= 0){
+    if (Number(percentageValue.value) >= 0) {
         percentageValue.value = Number(percentageValue.value) + 1;
         calculate();
     }
-    else
-        showError("invalid number", 'tip');
+    else{
+        percentageValue.value = Number(percentageValue.value) + 1;
+        if(Number(percentageValue.value) == 0)
+            calculate();
+        else    
+            showError("invalid number", 'tip');
+    }
 }
+
+// for changes in number of people on click minus button 
 function decrementpeople() {
     resetErrorMsg();
     let numberofpeople = document.getElementById("people");
@@ -47,6 +60,8 @@ function decrementpeople() {
         return false;
     }
 }
+
+// for changes in number of people on click minus button 
 function incrementpeople() {
     resetErrorMsg();
     let numberofpeople = document.getElementById("people");
@@ -59,6 +74,8 @@ function incrementpeople() {
         return false;
     }
 }
+
+//check validity of given inputs tip and number of people
 function checkInput(type) {
     switch (type) {
         case 'tip':
@@ -82,11 +99,15 @@ function checkInput(type) {
             break;
     }
 }
+
+//check values are greater than zero or not after operation
 function isGreaterThanZero(number, type) {
     if (type === 'tip')
         return number >= 0;
     return number > 0;
 }
+
+//calculate the desired output
 function calculate() {
     //debugger 
     const total = document.getElementById('amount').value;
@@ -95,24 +116,29 @@ function calculate() {
     if (tipValue >= 0 && ppl > 0 && total > 0) {
         let tippp = (total * tipValue / 100) / ppl;
         let totalpp = (parseFloat(total) + parseFloat(total * tipValue / 100)) / parseFloat(ppl);
-        document.getElementById('tipresult').innerHTML = "      "+"$" + tippp.toFixed(2);
-        document.getElementById('totalresult').innerHTML ="     "+"$" + totalpp.toFixed(2);
+        document.getElementById('tipresult').innerHTML = "   " + "$" + tippp.toFixed(2);
+        document.getElementById('totalresult').innerHTML = "   " + "$" + totalpp.toFixed(2);
     }
-    else{
+    else {
         document.getElementById('tipresult').innerText = 0.00;
         document.getElementById('totalresult').innerText = 0.00;
     }
 }
+
+//show error message if values are invalid
 function showError(msg, type) {
     isError = true
     if (type === 'tip')
         document.getElementById('tiperror').innerText = msg;
     else
         document.getElementById('pplerror').innerText = msg;
-    document.getElementById('tipresult').innerText=0.00.toFixed(2);
+    document.getElementById('tipresult').innerText = 0.00.toFixed(2);
 }
+
+//reset error msg or initially no error
 function resetErrorMsg() {
     isError = false;
     document.getElementById('tiperror').innerText = '';
     document.getElementById('pplerror').innerText = '';
 }
+
