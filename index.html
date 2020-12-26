@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="utf-8" content="tip calculator">
+<html>
+<head>
+<link rel="stylesheet" href="tipcalculator.css">
+</head>
+<body>
+<form>
+<div class="box">
+<div class="row">
+  <div class="column left" style="background-color:white;">
+    <h3>Bill</h3>
+		<input type="text" oninput="calculate()" id="amount" placeholder="Bill Amount">
+	       <div class="tippercentage">
+			<h3>Tip %</h3>
+			<button type="button" onclick="tipDecrement()">-</button>
+			<input type="text" id="tip" oninput="checkInput('tip')">
+			%
+			<button type="button" onclick="tipIncrement()">+</button>
+			<label id='tiperror' style="color: red;"></label>
+			<div class="totalpersons">
+			  <h3>Number of people</h3>
+				<button type="button" onclick="decrementpeople()">-</button>
+				<input type="text" oninput="checkInput('ppl')" id="people" placeholder=''>
+				<button type="button" onclick="incrementpeople()">+</button>
+				<label id='pplerror' style="color: red;"></label>
+			</div>
+           </div>
+  </div>
+  <div class="vl"></div>
+  <div class="column right" style="background-color:white;">
+  	<div id="results">
+	<div class="gap">
+	</div>
+	  <table cellspacing=15>
+		<tr>
+		  <td><b> Tip </b><br />
+		  (per person)
+		  </td>
+		  <td><span id='tipresult'></span></td>
+		</tr>
+		<tr>
+		  <td><b> Total </b> <br />
+		  (per person)
+		  </td>
+		  <td><span id='totalresult'></span></td>
+		</tr>
+	 </table>
+    </div>
+  </div>
+</div>
+</div>
+</form>
+<script src="tipcalculator.js">
+</script>
+</body>
+</html>
