@@ -1,0 +1,57 @@
+		* {
+			box-sizing: border-box;
+		}
+
+		#tipresult {
+			font-size: large;
+			font-weight: bold;
+		}
+
+		#totalresult {
+			font-size: large;
+			font-weight: bold;
+
+		}
+
+		/* Create two unequal columns that floats next to each other */
+		.column {
+			float: left;
+			padding: 10px;
+			height: 300px; 
+		}
+		 
+		/*left column */
+		.left {
+			width: 25%;
+		}
+
+		/*rightt column */
+		.right {
+			width: 45%;
+		}
+		
+		/* draw vertical line between two column */
+		.vl{
+			border-left: 1px solid black;
+			height: 300px;
+			position: absolute;
+			left: 30%;
+			margin-left: 30px;
+			top: 100;
+		}
+		.gap{
+			margin-left: 70px;
+			padding:20px;
+			width:200px;
+		}
+		
+		.box{
+
+			width:1500px; 
+			padding:200px;
+			background-color : url(tip.jpg);
+		}
+		body{
+			background-image: url(tip.jpg);
+		}
+		
