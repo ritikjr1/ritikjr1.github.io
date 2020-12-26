@@ -32,15 +32,12 @@
 		
 		/* draw vertical line between two column */
 		.vl{
-			
-			border-left: 1px solid transparent;
+			position: fixed;
+			left: 475px;
+			height: 305px; /* Length of line */
+			border-left: 1px solid black;
 			filter: blur(1px); /* Amount of bluryness */
 			border-image: linear-gradient(white, black, white) 10 stretch;
-			height: 300px;
-			position: absolute;
-			left: 30%;
-			margin-left: 30px;
-			top: 100;
 		}
 		.gap{
 			margin-left: 70px;
