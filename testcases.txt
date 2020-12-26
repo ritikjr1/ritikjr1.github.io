@@ -1,0 +1,25 @@
+BILL                TIP%             NUMBER OF PEOPLE      |   TIP(PER PERSON)          TOTAL(per person)
+500.00               10                   2                |     $25.00                     $275.00        //sample testcase
+
+0.00                 0.00                 0                |      0.00                        0.00         //DEFAULT(ON PAGE LOAD)
+
+0.00                 10(any value)        2(any value)     |      0.00                        0.00         //bill amount is zero
+NULL                 10(any value)        2(any value)     |      0.00                        0.00         //bill amount is NULL
+350                  5                    2                |      $8.75                       $183.75      //integer bill amount 
+350.44               5                    2                |      $8.76                       $183.98      //float bill amount 
+
+1000                 0                    5                |      0.00                        $200.00      //tip% = 0(no tip)
+1000                 NULL                 10               |      0.00                        $89.00       //tip% = NULL(no tip)
+1000                 -2                   4                |      0.00                        $250.00      //invalid number[tip% < 0]-(with error msg)
+1000                 25                   5                |      $50.00                      $250.00      //[tip% > 0 and tip%<100]
+1000                 26                   5                |      $52.00                      $252.00      // TIP% = TIP% + 1 (ON CLICK + BUTTON)
+1000                 24                   5                |      $48.00                      $248.00      // TIP% = TIP% - 1 (ON CLICK - BUTTON) 
+1000                 125                  5                |      $250.00                     $450.00      //[tip% > 100]
+1000                 25.45                5                |      $50.90                      $250.90      //float tip%
+
+120(any val >0)      5(any val>0)         NULL             |      0.00                        0.00         //NO INPUT ON NUMBER OF PEOPLE-(with error msg)
+120(any val >0)      5(any val>0)         0                |      0.00                        0.00         //NUMBER OF PEOPLE = 0 (with error msg)
+120(any val >0)      5(any val>0)        -5                |      0.00                        0.00         //NUMBER OF PEOPLE < 0 (with error msg)
+1000                 25                   10               |      $25.00                      $125.00      //NUMBER OF PEOPLE > 0
+1000                 25                   11               |      $22.73                      $113.64      //NUMBER OF PEOPLE = NUM. OF PPL + 1
+1000                 25                   9                |      $27.78                      $138.89      //NUMBER OF PEOPLE = NUM. OF PPL - 1
